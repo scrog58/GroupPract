@@ -1,8 +1,12 @@
 namespace myapp.Controllers {
 
     export class HomeController {
-        public message = 'Hello from the home page!';
-    }
+        public pounds
+
+        constructor(private weightService) {
+           this.pounds = this.weightService.list();
+        }
+        }
 
 
     export class AboutController {
