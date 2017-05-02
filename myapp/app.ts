@@ -5,9 +5,17 @@ import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
+import * as mongoose from 'mongoose';
 
+import weightClass from './api/groupapi';
 import routes from './routes/index';
 import users from './routes/users';
+
+const CONNECTION = 'mongodb://codercamps:fullstack@ds123381.mlab.com:23381/playaround';
+
+mongoose.connect(CONNECTION)
+  .then(() => console.log('LOOK TEAM WE DID IT!!!!!!!!!!!'))
+  .catch((err) => console.log(err))
 
 let app = express();
 
@@ -26,6 +34,7 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 app.use('/api', express.static(path.join(__dirname, 'api')));
 
+app.use('/api/v1/weight', weightClass)
 app.use('/', routes);
 app.use('/users', users);
 
