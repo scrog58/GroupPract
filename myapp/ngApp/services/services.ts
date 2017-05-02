@@ -1,7 +1,7 @@
 namespace myapp.Services {
 
   class WeightService {
-    public WEIGTH_RESOURCE = this.$resource('api/v1/weight');
+    public WEIGTH_RESOURCE = this.$resource('api/v1/weight/:id');
 
     constructor(private $resource) {}
 
