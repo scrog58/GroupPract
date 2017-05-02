@@ -7,7 +7,7 @@ import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
 import * as mongoose from 'mongoose';
 
-import weightClass from '../api/groupapi';
+import weightClass from './api/groupapi';
 import routes from './routes/index';
 import users from './routes/users';
 
